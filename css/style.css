@@ -1,0 +1,52 @@
+
+
+
+
+ul, nav, body, h1, h2, h4, h6, p, figure {
+  margin: 0;
+  padding: 0;
+}
+
+a, button { transition: all 0.3s ease; }
+
+/* Bootstrap grid system  */
+
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+
+
+.col-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-lg-3,
+.col-lg-4,
+.col-lg-6,
+.col-md-4,
+.col-md-6,
+.col-sm-6, 
+.col-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 17px;
+  background-color: #ccc;
+  overflow-x: hidden;
+}
+
+
+p, address {
+  color: #626364;
+  line-height: 1.8;
+}
+

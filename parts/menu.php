@@ -5,7 +5,7 @@
                 <div class="col-md-6 col-12">
                     
                     <div class="tm-site-text-box">
-                        <h1 class="tm-site-title">barsčo</h1>
+                        <h1 class="tm-site-title">Reštaurička</h1>
                         <h6 class="tm-site-description">new restaurant template</h6>
                     </div>
                 </div>

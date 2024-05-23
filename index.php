@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="sk">
+<?php  include_once "parts/head.php" ?>
+
+<?php
+include_once "admin/db.php"?>
 
 <head>
     <link rel="stylesheet" href="css/style.css">

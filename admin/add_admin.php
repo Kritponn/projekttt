@@ -66,11 +66,11 @@ if (isset($_GET['delete'])){
         </tr>
         <?php
         $select =mysqli_query($conn,"SELECT * FROM login");
-        while ($row=mysqli_fetch_assoc($select)){ ?>
+        while ($row=mysqli_fetch_assoc($select)){ ?> <!-- ALTER TABLE login AUTO_INCREMENT = 1; ..vráti id na 1  -->
             <tr>
                 <td> <?php echo $row['meno']; ?></td>
                 <td>
-                    <a href="add_admin.php?delete=<?php echo $row['id'];?>" > Zmazať </a> <!--toto ?delete si nahravam hore do if  -->
+                    <a href="add_admin.php?delete=<?php echo $row['id'];?>" > Zmazať </a> <!--toto ?delete si nahravam hore do if   -->
                 </td>
                 <td>
                     <a href="update_admin_meno.php?edit=<?php echo $row['id'];?>" > Zmena mena</a>
@@ -84,5 +84,6 @@ if (isset($_GET['delete'])){
 
 
 </main>
+
 </body>
 </html>

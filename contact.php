@@ -126,8 +126,6 @@ https://templatemo.com/tm-539-simple-house
         include_once "parts/footer.php"
         ?>
 	</div>
-    <?php
-    include_once "parts/spolocny_script.php"
-    ?>
+  
 </body>
 </html>

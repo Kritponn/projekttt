@@ -50,3 +50,47 @@ p, address {
   line-height: 1.8;
 }
 
+.placeholder {
+  width: 100%;
+  min-height: 460px;
+  background-color: #556E5B;
+}
+
+.placeholder-2 {
+  width: 100%;
+  min-height: 220px;
+  background-color: #CFBEA5;
+  position: relative;
+  z-index: 998;
+}
+
+.tm-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 1000;
+}
+
+.tm-header-inner {
+  padding: 40px 50px;
+}
+
+.tm-nav {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.tm-nav-ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tm-nav-li {
+  list-style: none;
+  display: block;
+  margin-bottom: 0;
+  padding-right: 25px;
+  padding-left: 25px;
+}

@@ -1,6 +1,6 @@
 <footer class="tm-footer text-center">
     <p>Copyright &copy; 2020 Simple House
-        <br>
+    <br>
         <br>
         <br>
         <br>

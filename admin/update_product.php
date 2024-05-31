@@ -1,9 +1,8 @@
 <?php
-include_once "db.php"; // Zahrnutie súboru "db.php", ktorý obsahuje pripojenie k databáze
+include_once "Database.php"; // Zahrnutie súboru "db.php", ktorý obsahuje pripojenie k databáze
 
-if (empty($conn)){ // Ak pripojenie k databáze neexistuje, vytvorí sa prázdny objekt
-    $conn=new stdClass();
-}
+$db = new Database();
+$conn = $db->getConnection();
 session_start(); // Spustí alebo obnoví existujúcu session
 
 if(!isset( $_SESSION['nick'])){ // Ak užívateľ nie je prihlásený, presmeruje ho na stránku login.php
@@ -115,7 +114,7 @@ if (isset($_POST['update_product'])){ // Ak bol odoslaný formulár na aktualiz�
             <input type="hidden" id="kategoria_id" name="kategoria_id">
             <br> <br>
             <input type="submit"  name="update_product" value="edituj">
-            <a href="add_product.php"> Naspäť</a>
+            <a href="AddProduct.php"> Naspäť</a>
             <a href="home.php"> Admin domov</a>
         </form>
         <?php

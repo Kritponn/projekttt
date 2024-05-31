@@ -3,7 +3,7 @@
 <?php  include_once "parts/head.php" ?>
 
 <?php
-include_once "admin/db.php"?>
+include_once "admin/Database.php"?>
 
 <head>
     <link rel="stylesheet" href="css/style.css">

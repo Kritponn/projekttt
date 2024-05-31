@@ -1,10 +1,9 @@
 <?php
-include_once "db.php"; // Vloží súbor s pripojením do databázy
+include_once "Database.php"; // Vloží súbor s pripojením do databázy
 
 // Skontroluje, či je premenná $conn prázdna (neobsahuje pripojenie k databáze)
-if (empty($conn)){
-    $conn = new stdClass(); // Ak áno, vytvorí novú prázdnu objektovú premennú $conn
-}
+$db = new Database();
+$conn = $db->getConnection();
 
 session_start(); // Spustí session na začiatku skriptu
 
@@ -14,7 +13,7 @@ if (!isset($_SESSION['nick'])){
 }
 
 // Skontroluje, či bol odoslaný formulár na pridanie produktu
-if (isset($_POST['add_product'])){
+if (isset($_POST['AddProduct'])){
     $jedlo_nazov = $_POST['nazov']; // Získa hodnotu 'nazov' z formulára
     $jedlo_popis = $_POST['popis']; // Získa hodnotu 'popis' z formulára
     $kategoria_id = $_POST['kategoria_id']; // Získa hodnotu 'kategoria_id' z formulára
@@ -129,7 +128,7 @@ if (isset($_GET['delete'])){
                 <td><?php echo $row['kategoria_nazov']; ?></td> <!-- Vypíše názov kategórie -->
                 <td>
                     <a href="update_product.php?edit=<?php echo $row['id']; ?>">Edit</a> / <!-- Odkaz na úpravu produktu -->
-                    <a href="add_product.php?delete=<?php echo $row['id']; ?>">Delete</a> <!-- Odkaz na vymazanie produktu -->
+                    <a href="AddProduct.php?delete=<?php echo $row['id']; ?>">Delete</a> <!-- Odkaz na vymazanie produktu -->
                 </td>
             </tr>
             <?php }; ?>

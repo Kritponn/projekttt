@@ -1,9 +1,8 @@
 <?php
-include_once "db.php"; // Zahrnie súbor "db.php", ktorý obsahuje pripojenie k databáze
+include_once "Database.php"; // Zahrnie súbor "db.php", ktorý obsahuje pripojenie k databáze
 
-if (empty($conn)){
-    $conn = new stdClass(); // Ak pripojenie k databáze neexistuje, vytvorí prázdny objekt (len ako placeholder)
-}
+$db = new Database();
+$conn = $db->getConnection();
 session_start(); // Spustí alebo obnoví existujúcu session
 if (!isset($_SESSION['nick'])){ // Skontroluje, či je premenná session 'nick' nastavená
     header("location: login.php"); // Ak nie je nastavená, presmeruje užívateľa na stránku login.php
@@ -27,7 +26,7 @@ $id = $_GET['edit']; // Získa hodnotu parametra 'edit' z URL
             <input type="password" name="nove" placeholder="Nové heslo"><br>
             <br><br>
             <input type="submit" name="sub" value="zmeň heslo"><br>
-            <a href="add_admin.php">Naspäť</a> <br> <!-- Odkaz späť na stránku add_admin.php -->
+            <a href="AddAdmin.php">Naspäť</a> <br> <!-- Odkaz späť na stránku add_admin.php -->
             <a href="home.php">Admin domov</a> <!-- Odkaz späť na hlavnú stránku administrácie -->
         </form>
     </div>

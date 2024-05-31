@@ -11,12 +11,12 @@ if(!isset($_SESSION['nick'])){ // Skontroluje, či je premenná session 'nick' n
 
 <h1>Admin home</h1>
 <ul class="home">
-    <li> <a href="add_product.php"> Editovanie - Jedlo </a> </li> <!-- Odkaz na stránku pre editáciu jedál -->
-    <li> <a href="add_kategoria.php">Editovanie - Kategória jedla  </a> </li> <!-- Odkaz na stránku pre editáciu kategórií jedál -->
+    <li> <a href="AddProduct.php"> Editovanie - Jedlo </a> </li> <!-- Odkaz na stránku pre editáciu jedál -->
+    <li> <a href="AddKategoria.php">Editovanie - Kategória jedla  </a> </li> <!-- Odkaz na stránku pre editáciu kategórií jedál -->
 </ul>
 <h3> prihlaseny - <?php echo $_SESSION['nick']?> </h3> <!-- Zobrazenie prihláseného používateľského mena -->
 <br>
-<li> <a href="add_admin.php"> Editovanie - Admin </a> </li> <!-- Odkaz na stránku pre editáciu adminov -->
+<li> <a href="AddAdmin.php"> Editovanie - Admin </a> </li> <!-- Odkaz na stránku pre editáciu adminov -->
 <br>
 <!-- Formulár na odhlásenie -->
 <form method="post">

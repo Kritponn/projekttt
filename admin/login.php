@@ -1,10 +1,9 @@
 <?php
-include_once "db.php"; // Vloží súbor s pripojením do databázy
+include_once "Database.php"; // Vloží súbor s pripojením do databázy
 
-// Skontroluje, či je premenná $conn prázdna (neobsahuje pripojenie k databáze)
-if (empty($conn)){
-    $conn = new stdClass(); // Ak áno, vytvorí novú prázdnu objektovú premennú $conn
-}
+// Vytvorenie inštancie triedy Database a získanie pripojenia k databáze
+$db = new Database();
+$conn = $db->getConnection();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,21 +24,26 @@ if (empty($conn)){
 <?php
 // Skontroluje, či bol odoslaný formulár
 if (isset($_POST['sub'])){
-    //vypíše správu, že tlačidlo bolo stlačené
+    // Ochrana pred SQL injekciou
+    $meno = $conn->real_escape_string($_POST['meno']);
+    $heslo = $conn->real_escape_string($_POST['heslo']);
+
     // SQL dotaz na overenie používateľského mena a hesla
-    $sql = "SELECT * FROM `login` WHERE meno='$_POST[meno]' AND heslo='$_POST[heslo]'";
-    $upload = mysqli_query($conn, $sql); // Vykoná SQL dotaz
+    $sql = "SELECT * FROM login WHERE meno='$meno' AND heslo='$heslo'";
+    $upload = $conn->query($sql); // Vykoná SQL dotaz
 
     // Skontroluje, či bol nájdený presne jeden záznam
-    if (mysqli_num_rows($upload) == 1){
+    if ($upload->num_rows == 1){
         session_start(); // Spustí session
         $_SESSION['nick'] = $_POST['meno']; // Nastaví premennú session 'nick' na hodnotu 'meno'
         header("location: home.php"); // Presmeruje užívateľa na stránku home.php
-    }
-    else{
+    } else {
         echo "chyba prihlasenia"; // Ak prihlásenie zlyhalo, vypíše správu o chybe
     }
 }
+
+// Zavretie pripojenia k databáze
+$db->closeConnection();
 ?>
 </body>
 </html>
